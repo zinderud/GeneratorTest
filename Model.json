@@ -1,0 +1,40 @@
+{"Addresses": {
+        "Id": { "key": "true" },
+        "phone": { "type": "string", "require": "true" },
+        "email": "string",
+		"web": "string",
+		"gander": "string",
+		"birth_at": "string",
+		"Addresss": {"type": "string", "require": "true" }
+    },
+    "ProgramUsers": {
+        "Id": { "key": "true" },
+        "tc": { "type": "string", "require": "true" },
+		"Name": "string",
+        "last_name": "string",
+		 "gander": "string",
+		 "gander": "string",
+		 "birth_at": "string",
+       
+        "bio": {"type": "string", "textArea": "true" },
+        "AddressID": { "referans": "Addresses", "render": "Addresss"} 
+    },
+	
+	
+    "Doctors": {
+        "Id": { "key": "true" },
+        "Name": { "type": "string", "require": "true" },
+        "Address": "string",
+        "Available": "boolean"        
+    },
+    "Patients": {
+        "Id": { "key": "true" },
+        "Name": { "type": "string", "require": "true" },
+        "Address": "string",
+        "Age": "number",
+        "History": {"type": "string", "textArea": "true" },
+        "DoctorId": { "referans": "Doctors", "render": "Name"} ,
+		"ProgramUserId": { "referans": "ProgramUsers", "render": "Name" }
+    },
+    "relativeURI": "/api"
+}

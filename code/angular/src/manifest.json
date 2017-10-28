@@ -1,0 +1,13 @@
+{
+  "name": "Zinderud",
+  "short_name": "zinderud",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "assets/output.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "background_color": "#488aff",
+  "theme_color": "#488aff"
+}

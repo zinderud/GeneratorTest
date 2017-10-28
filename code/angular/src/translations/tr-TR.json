@@ -1,0 +1,22 @@
+{
+  "APP_NAME": "yodeneme",
+  "About": "Hakkında",
+  "Hello world !": "Merhaba Dünya !",
+  "Home": "Ana Sayfa",
+  "Logged in as": "Kullanıcı",
+  "Login": "Giriş",
+  "Logout": "Çıkıs",
+  "Password": "Şifre",
+  "Password is required": "Şifre Gerekli",
+  "Username": "K.Adi",
+  "Username is required": "Kullanıcı adı Gerekli",
+  "Username or password incorrect.": "Kullanıcı adı veya şifre hatalı.",
+  "Remember me": "Beni Unutma ..",
+  "Version": "Versiyon",
+  "doctors":"Doktorlar",
+  "patients":"hastalar",
+  "Have an account?":"Üyemisin?",
+  "Need an account?":"Üye ol?",
+  "Sign in":"Giriş",
+  "Sign up":"Sign up"
+}
