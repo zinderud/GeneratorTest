@@ -1,7 +1,7 @@
 import {Component, Input, Output, EventEmitter } from '@angular/core';
 
 import {
-  ProgramUserModel,
+  
   PatientModel
 } from '../../models';
 
@@ -14,14 +14,10 @@ import {
         <td>{{patient.Age}}</td>
         <td>{{patient.History}}</td>
         
-        <td *ngIf="programUser">{{programUser.Name || "No ProgramUser"}}</td>
-        <td *ngIf="programUser">{{programUser.Name || "No ProgramUser"}}</td>
-        <td *ngIf="!programUser"></td>
         
         <td patient-edit-ui 
                 [patient]="patient" 
  
-                [programUsers]="programUsers"
                 (onEditHandler)="onEditPatients($event)">
         </td>
         <td patient-delete-ui 
@@ -32,8 +28,6 @@ import {
 })
 export class PatientsUi {
     @Input() patient: PatientModel;
-    @Input() programUser: ProgramUserModel;
-    @Input() programUsers: Array<ProgramUserModel>;
 
     @Output() onEditHandler = new EventEmitter();
     @Output() onDeleteHandler = new EventEmitter();

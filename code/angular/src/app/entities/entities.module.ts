@@ -4,12 +4,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule } from '@angular/forms';
 import { entitiesRoutingModule } from './entities-routing.module';
 import { DashboardContainer } from './containers/dashboard.container';
-import { AddressesContainer, ProgramUsersContainer, DoctorsContainer, PatientsContainer, } from './containers/index';
+import { PatientsContainer, AddressesContainer, ProgramUsersContainer, DoctorsContainer, } from './containers/index';
 
-import {  AddressesService,ProgramUsersService,DoctorsService,PatientsService,} from "./services/index";
+import {  PatientsService,AddressesService,ProgramUsersService,DoctorsService,} from "./services/index";
  
 // tslint:disable-next-line:max-line-length
-import {  AddressesCreate,ProgramUsersCreate,DoctorsCreate,PatientsCreate, AddressesUi, ProgramUsersUi, DoctorsUi, PatientsUi,  AddressesDelete, ProgramUsersDelete, DoctorsDelete, PatientsDelete,   AddressesEdit, ProgramUsersEdit, DoctorsEdit, PatientsEdit, } from './ui/index';
+import {  PatientsCreate,AddressesCreate,ProgramUsersCreate,DoctorsCreate, PatientsUi, AddressesUi, ProgramUsersUi, DoctorsUi,  PatientsDelete, AddressesDelete, ProgramUsersDelete, DoctorsDelete,   PatientsEdit, AddressesEdit, ProgramUsersEdit, DoctorsEdit, } from './ui/index';
 
 
 @NgModule({
@@ -20,7 +20,7 @@ import {  AddressesCreate,ProgramUsersCreate,DoctorsCreate,PatientsCreate, Addre
     entitiesRoutingModule
   ],
   // tslint:disable-next-line:max-line-length
-  declarations: [DashboardContainer,AddressesContainer,ProgramUsersContainer,DoctorsContainer,PatientsContainer,  AddressesCreate, ProgramUsersCreate, DoctorsCreate, PatientsCreate,  AddressesUi, ProgramUsersUi, DoctorsUi, PatientsUi,  AddressesDelete,ProgramUsersDelete,DoctorsDelete,PatientsDelete,  AddressesEdit, ProgramUsersEdit, DoctorsEdit, PatientsEdit, ],
-  providers: [AddressesService,ProgramUsersService,DoctorsService,PatientsService, ]
+  declarations: [DashboardContainer,PatientsContainer,AddressesContainer,ProgramUsersContainer,DoctorsContainer,  PatientsCreate, AddressesCreate, ProgramUsersCreate, DoctorsCreate,  PatientsUi, AddressesUi, ProgramUsersUi, DoctorsUi,  PatientsDelete,AddressesDelete,ProgramUsersDelete,DoctorsDelete,  PatientsEdit, AddressesEdit, ProgramUsersEdit, DoctorsEdit, ],
+  providers: [PatientsService,AddressesService,ProgramUsersService,DoctorsService, ]
 })
 export class EntitiesModule { }

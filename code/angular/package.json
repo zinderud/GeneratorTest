@@ -1,7 +1,7 @@
 {
-  "name": "generatortestet",
+  "name": "GeneratorTest",
   "version": "0.1.0",
-  "description": "geneator test simple",
+  "description": "",
   "private": true,
   "scripts": {
     "ng": "ng",

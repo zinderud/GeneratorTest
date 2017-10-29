@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  ProgramUserModel,
+  
   PatientModel
 } from './../models';
 
 import {
-  ProgramUsersService,
   PatientsService
 } from '../services';
 
@@ -17,7 +16,6 @@ import {
     <div>
         <h1>Patients</h1>                    
             <patient-create-ui 
-                [programUsers]="programUsers"
               
                 (onSaveHandler)="onCreatePatients($event)" >
             </patient-create-ui>
@@ -41,10 +39,10 @@ import {
                 History        
               </th>            
               <th>
-                Doctors Name        
+                Doctor Name        
               </th>            
               <th>
-                ProgramUsers Name        
+                ProgramUser Name        
               </th>            
               <th>
                 Edit
@@ -59,8 +57,6 @@ import {
             <tr patient-ui 
                 *ngFor="let patient of patients" 
                 [patient]="patient" 
-                [programUsers]="programUsers"                
-                [programUser]="getProgramUser(patient.ProgramUserId)"
                 
                 (onEditHandler)="onEditPatients($event)"
                 (onDeleteHandler)="onDeletePatients($event)"
@@ -73,18 +69,14 @@ import {
 })
 export class PatientsContainer implements OnInit{
   patients: PatientModel[] = [];
-  programUsers: ProgramUserModel[] = [];
 
   constructor(
     
-    private programUserService: ProgramUsersService,
     private patientService: PatientsService) {}
 
 
 ngOnInit() {
    
-        this.programUserService.getProgramUsers().subscribe(data => {
-        this. programUsers = data.data;});
        
   this.patientService.getPatients().subscribe(data => {
     this. patients = data.data;});
@@ -102,7 +94,4 @@ ngOnInit() {
     this.patientService.deletePatient(id).subscribe();
   }
 
-  getProgramUser(id: string): ProgramUserModel {
-    return this.programUsers.find(f => f.Id === id );
-  }
 }

@@ -1,8 +1,7 @@
 import {Component, Output, Input, EventEmitter, OnInit} from '@angular/core'
 
 import {
-    ProgramUserModel,
-  PatientModel
+    PatientModel
 } from '../../models';
 
 @Component({
@@ -69,16 +68,6 @@ import {
  
  
 
-                            <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">ProgramUser</label>
-                                <div class="col-sm-10">
-                        
-                                    <select [(ngModel)]="editPatient.ProgramUserId" name="ProgramUserId">
-                                        <option *ngFor="let e of programUsers" [ngValue]="e.Id">{{e.Name}}</option>
-                                    </select> 
-                                </div>
-                            </div>    
-
                         </form> 
                     </div>
                     <div class="modal-footer">
@@ -92,7 +81,6 @@ import {
 })
 export class PatientsEdit  implements OnInit {
     @Input() patient: PatientModel;
-    @Input() programUsers: Array<ProgramUserModel>;
 
     @Output() onEditHandler = new EventEmitter();
 

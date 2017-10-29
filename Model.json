@@ -1,4 +1,14 @@
-{"Addresses": {
+{
+    "Patients": {
+        "Id": { "key": "true" },
+        "Name": { "type": "string", "require": "true" },
+        "Address": "string",
+        "Age": "number",
+        "History": {"type": "string", "textArea": "true" },
+        "DoctorId": { "referans": "Doctor", "render": "Name"} ,
+		"ProgramUserId": { "referans": "ProgramUser", "render": "Name" }
+    },
+	"Addresses": {
         "Id": { "key": "true" },
         "phone": { "type": "string", "require": "true" },
         "email": "string",
@@ -17,7 +27,8 @@
 		 "birth_at": "string",
        
         "bio": {"type": "string", "textArea": "true" },
-        "AddressID": { "referans": "Addresses", "render": "Addresss"} 
+        "AddressID": { "referans": "Address", "render": "Addresss"},
+		 "DoctorId": { "referans": "Doctor", "render": "Name"} 
     },
 	
 	
@@ -27,14 +38,5 @@
         "Address": "string",
         "Available": "boolean"        
     },
-    "Patients": {
-        "Id": { "key": "true" },
-        "Name": { "type": "string", "require": "true" },
-        "Address": "string",
-        "Age": "number",
-        "History": {"type": "string", "textArea": "true" },
-        "DoctorId": { "referans": "Doctors", "render": "Name"} ,
-		"ProgramUserId": { "referans": "ProgramUsers", "render": "Name" }
-    },
-    "relativeURI": "/api"
+    "relativeURI": ""
 }
