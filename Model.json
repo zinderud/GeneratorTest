@@ -1,23 +1,11 @@
-{
-    "Patients": {
+{	
+    "Doctors": {
         "Id": { "key": "true" },
         "Name": { "type": "string", "require": "true" },
         "Address": "string",
-        "Age": "number",
-        "History": {"type": "string", "textArea": "true" },
-        "DoctorId": { "referans": "Doctor", "render": "Name"} ,
-		"ProgramUserId": { "referans": "ProgramUser", "render": "Name" }
+        "Available": "boolean"        
     },
-	"Addresses": {
-        "Id": { "key": "true" },
-        "phone": { "type": "string", "require": "true" },
-        "email": "string",
-		"web": "string",
-		"gander": "string",
-		"birth_at": "string",
-		"Addresss": {"type": "string", "require": "true" }
-    },
-    "ProgramUsers": {
+ "ProgramUsers": {
         "Id": { "key": "true" },
         "tc": { "type": "string", "require": "true" },
 		"Name": "string",
@@ -27,16 +15,29 @@
 		 "birth_at": "string",
        
         "bio": {"type": "string", "textArea": "true" },
-        "AddressID": { "referans": "Address", "render": "Addresss"},
-		 "DoctorId": { "referans": "Doctor", "render": "Name"} 
+         
+		 "DoctorId": { "referans": "Doctor", "render": "Name","plural":"Doctors"} 
     },
-	
-	
-    "Doctors": {
+   
+    "Patients": {
         "Id": { "key": "true" },
         "Name": { "type": "string", "require": "true" },
         "Address": "string",
-        "Available": "boolean"        
+        "Age": "number",
+        "History": {"type": "string", "textArea": "true" },
+        "DoctorId": { "referans": "Doctor", "render": "Name","plural":"Doctors"} ,
+		"ProgramUserId": { "referans": "ProgramUser", "render": "Name" ,"plural":"ProgramUsers" }
     },
+	"Addresses": {
+        "Id": { "key": "true" },
+        "phone": { "type": "string", "require": "true" },
+        "email": "string",
+		"web": "string",
+		"gander": "string",
+		"birth_at": "string",
+		"Addresss": {"type": "string", "require": "true" }
+    } ,
+	
+
     "relativeURI": ""
 }

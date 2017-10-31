@@ -8,7 +8,7 @@ import {
 @Component({
     selector: '[address-ui]',
     template: `
-        <td>{{address.Id}}</td>
+            <td>{{address.Id}}</td>
         <td>{{address.phone}}</td>
         <td>{{address.email}}</td>
         <td>{{address.web}}</td>
@@ -25,7 +25,7 @@ import {
             [address]="address"
             (onDeleteHandler)="onDeleteAddresses($event)">
         </td>
-    `
+`
 })
 export class AddressesUi {
     @Input() address: AddressModel;

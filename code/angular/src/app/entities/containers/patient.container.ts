@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  
+  DoctorModel,ProgramUserModel,
   PatientModel
 } from './../models';
 
 import {
+  DoctorsService,
+  ProgramUsersService,
   PatientsService
 } from '../services';
 
@@ -16,6 +18,8 @@ import {
     <div>
         <h1>Patients</h1>                    
             <patient-create-ui 
+                [Doctors]="Doctors"
+                [ProgramUsers]="ProgramUsers"
               
                 (onSaveHandler)="onCreatePatients($event)" >
             </patient-create-ui>
@@ -57,6 +61,10 @@ import {
             <tr patient-ui 
                 *ngFor="let patient of patients" 
                 [patient]="patient" 
+                [Doctors]="Doctors"                
+                [Doctor]="getDoctor(patient.DoctorId)"
+                [ProgramUsers]="ProgramUsers"                
+                [ProgramUser]="getProgramUser(patient.ProgramUserId)"
                 
                 (onEditHandler)="onEditPatients($event)"
                 (onDeleteHandler)="onDeletePatients($event)"
@@ -69,14 +77,22 @@ import {
 })
 export class PatientsContainer implements OnInit{
   patients: PatientModel[] = [];
+  Doctors: DoctorModel[] = [];
+  ProgramUsers: ProgramUserModel[] = [];
 
   constructor(
     
+    private DoctorService: DoctorsService,
+    private ProgramUserService: ProgramUsersService,
     private patientService: PatientsService) {}
 
 
 ngOnInit() {
    
+        this.DoctorService.getDoctors().subscribe(data => {
+        this. Doctors = data.data;});
+        this.ProgramUserService.getProgramUsers().subscribe(data => {
+        this. ProgramUsers = data.data;});
        
   this.patientService.getPatients().subscribe(data => {
     this. patients = data.data;});
@@ -94,4 +110,10 @@ ngOnInit() {
     this.patientService.deletePatient(id).subscribe();
   }
 
+  getDoctor(id: string): DoctorModel {
+    return this.Doctors.find(f => f.Id === id );
+  }
+  getProgramUser(id: string): ProgramUserModel {
+    return this.ProgramUsers.find(f => f.Id === id );
+  }
 }

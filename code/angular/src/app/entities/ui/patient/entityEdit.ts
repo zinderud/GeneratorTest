@@ -1,7 +1,9 @@
 import {Component, Output, Input, EventEmitter, OnInit} from '@angular/core'
 
 import {
-    PatientModel
+                                                                                                      DoctorModel,
+                                 ProgramUserModel,
+                 PatientModel
 } from '../../models';
 
 @Component({
@@ -62,11 +64,27 @@ import {
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">History</label>
                                 <div class="col-sm-10">
-                                    <textarea name="History" [(ngModel)]="editPatient.History"  ></textarea>
+                                    <textarea name="History" [(ngModel)]="editPatient.History" rows="10" cols="55"></textarea>
                                 </div>
                             </div>
  
  
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Doctor</label>
+                        <div class="col-sm-10">
+                                                        <select [(ngModel)]="patient.DoctorId" name="DoctorId">
+                                <option *ngFor="let e of Doctors" [ngValue]="e.Id">{{e.Name}}</option>
+                            </select>  
+                                    </div>
+                            </div>    
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">ProgramUser</label>
+                        <div class="col-sm-10">
+                                                            <select [(ngModel)]="patient.ProgramUserId" name="ProgramUserId">
+                                <option *ngFor="let e of ProgramUsers" [ngValue]="e.Id">{{e.Name}}</option>
+                            </select>  
+                                </div>
+                            </div>    
 
                         </form> 
                     </div>
@@ -81,7 +99,11 @@ import {
 })
 export class PatientsEdit  implements OnInit {
     @Input() patient: PatientModel;
-
+                        @Input() Doctor: DoctorModel;
+            @Input() Doctors: Array<DoctorModel>;
+                    @Input() ProgramUser: ProgramUserModel;
+            @Input() ProgramUsers: Array<ProgramUserModel>;
+                
     @Output() onEditHandler = new EventEmitter();
 
     editPatient: PatientModel;

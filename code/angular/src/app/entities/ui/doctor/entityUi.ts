@@ -8,7 +8,7 @@ import {
 @Component({
     selector: '[doctor-ui]',
     template: `
-        <td>{{doctor.Id}}</td>
+            <td>{{doctor.Id}}</td>
         <td>{{doctor.Name}}</td>
         <td>{{doctor.Address}}</td>
         <td>{{doctor.Available}}</td>
@@ -22,7 +22,7 @@ import {
             [doctor]="doctor"
             (onDeleteHandler)="onDeleteDoctors($event)">
         </td>
-    `
+`
 })
 export class DoctorsUi {
     @Input() doctor: DoctorModel;

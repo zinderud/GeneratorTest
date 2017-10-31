@@ -1,10 +1,8 @@
 import {  Component, Output, Input, EventEmitter} from '@angular/core';
 
 import {
-                                                                   AddressModel,
-                DoctorModel,
-           
-  ProgramUserModel
+                                                                    DoctorModel,
+         ProgramUserModel
 } from '../../models';
 
 @Component({
@@ -55,6 +53,14 @@ import {
                   </div>
                 </div>
                 
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Doctor</label>
+                    <div class="col-sm-10">
+                        <select [(ngModel)]="programUser.DoctorId" name="DoctorId">
+                            <option *ngFor="let e of Doctors" [ngValue]="e.Id">{{e.Name}}</option>
+                        </select>  
+                    </div>
+                </div> 
             
                            
                 <button class="btn btn-success" (click)="onSave()">Save</button>
@@ -65,6 +71,7 @@ import {
     `
 })
 export class ProgramUsersCreate {
+    @Input() Doctors: Array<DoctorModel>;
     @Output() onSaveHandler = new EventEmitter();
 
     programUser: ProgramUserModel = {

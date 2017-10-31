@@ -1,7 +1,7 @@
 import {Component, Output, Input, EventEmitter, OnInit} from '@angular/core'
 
 import {
-    DoctorModel
+                                                                      DoctorModel
 } from '../../models';
 
 @Component({
@@ -72,7 +72,7 @@ import {
 })
 export class DoctorsEdit  implements OnInit {
     @Input() doctor: DoctorModel;
-
+    
     @Output() onEditHandler = new EventEmitter();
 
     editDoctor: DoctorModel;

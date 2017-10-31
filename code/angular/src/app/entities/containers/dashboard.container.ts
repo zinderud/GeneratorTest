@@ -23,16 +23,16 @@ import { Component } from '@angular/core';
                 <hr />
                 <ul class="nav flex-column ">
                     <li>
-                        <a class="route"><div [routerLink]="['', 'patients']">Patients</div></a>
-                    </li>
-                    <li>
-                        <a class="route"><div [routerLink]="['', 'addresses']">Addresses</div></a>
+                        <a class="route"><div [routerLink]="['', 'doctors']">Doctors</div></a>
                     </li>
                     <li>
                         <a class="route"><div [routerLink]="['', 'programUsers']">ProgramUsers</div></a>
                     </li>
                     <li>
-                        <a class="route"><div [routerLink]="['', 'doctors']">Doctors</div></a>
+                        <a class="route"><div [routerLink]="['', 'patients']">Patients</div></a>
+                    </li>
+                    <li>
+                        <a class="route"><div [routerLink]="['', 'addresses']">Addresses</div></a>
                     </li>
                 </ul>
             </div>

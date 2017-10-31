@@ -1,7 +1,7 @@
 import {Component, Output, Input, EventEmitter, OnInit} from '@angular/core'
 
 import {
-    AddressModel
+                                                                                                                      AddressModel
 } from '../../models';
 
 @Component({
@@ -99,7 +99,7 @@ import {
 })
 export class AddressesEdit  implements OnInit {
     @Input() address: AddressModel;
-
+    
     @Output() onEditHandler = new EventEmitter();
 
     editAddress: AddressModel;

@@ -1,8 +1,7 @@
 import {  Component, Output, Input, EventEmitter} from '@angular/core';
 
 import {
-                                      
-  DoctorModel
+                                    DoctorModel
 } from '../../models';
 
 @Component({

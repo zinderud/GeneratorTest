@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  
+  DoctorModel,
   ProgramUserModel
 } from './../models';
 
 import {
+  DoctorsService,
   ProgramUsersService
 } from '../services';
 
@@ -16,6 +17,7 @@ import {
     <div>
         <h1>ProgramUsers</h1>                    
             <programUser-create-ui 
+                [Doctors]="Doctors"
               
                 (onSaveHandler)="onCreateProgramUsers($event)" >
             </programUser-create-ui>
@@ -45,9 +47,6 @@ import {
                 bio        
               </th>            
               <th>
-                Address Addresss        
-              </th>            
-              <th>
                 Doctor Name        
               </th>            
               <th>
@@ -63,6 +62,8 @@ import {
             <tr programUser-ui 
                 *ngFor="let programUser of programUsers" 
                 [programUser]="programUser" 
+                [Doctors]="Doctors"                
+                [Doctor]="getDoctor(programUser.DoctorId)"
                 
                 (onEditHandler)="onEditProgramUsers($event)"
                 (onDeleteHandler)="onDeleteProgramUsers($event)"
@@ -75,14 +76,18 @@ import {
 })
 export class ProgramUsersContainer implements OnInit{
   programUsers: ProgramUserModel[] = [];
+  Doctors: DoctorModel[] = [];
 
   constructor(
     
+    private DoctorService: DoctorsService,
     private programUserService: ProgramUsersService) {}
 
 
 ngOnInit() {
    
+        this.DoctorService.getDoctors().subscribe(data => {
+        this. Doctors = data.data;});
        
   this.programUserService.getProgramUsers().subscribe(data => {
     this. programUsers = data.data;});
@@ -100,4 +105,7 @@ ngOnInit() {
     this.programUserService.deleteProgramUser(id).subscribe();
   }
 
+  getDoctor(id: string): DoctorModel {
+    return this.Doctors.find(f => f.Id === id );
+  }
 }

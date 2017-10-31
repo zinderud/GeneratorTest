@@ -1,7 +1,8 @@
 import {Component, Output, Input, EventEmitter, OnInit} from '@angular/core'
 
 import {
-    ProgramUserModel
+                                                                                                                                      DoctorModel,
+                 ProgramUserModel
 } from '../../models';
 
 @Component({
@@ -80,11 +81,18 @@ import {
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">bio</label>
                                 <div class="col-sm-10">
-                                    <textarea name="bio" [(ngModel)]="editProgramUser.bio"  ></textarea>
+                                    <textarea name="bio" [(ngModel)]="editProgramUser.bio" rows="10" cols="55"></textarea>
                                 </div>
                             </div>
  
- 
+                        <div class="form-group row">
+                        <label class="col-sm-2 col-form-label">Doctor</label>
+                        <div class="col-sm-10">
+                                                                <select [(ngModel)]="programUser.DoctorId" name="DoctorId">
+                                <option *ngFor="let e of Doctors" [ngValue]="e.Id">{{e.Name}}</option>
+                            </select>  
+                                </div>
+                            </div>    
 
                         </form> 
                     </div>
@@ -99,7 +107,9 @@ import {
 })
 export class ProgramUsersEdit  implements OnInit {
     @Input() programUser: ProgramUserModel;
-
+                        @Input() Doctor: DoctorModel;
+            @Input() Doctors: Array<DoctorModel>;
+                
     @Output() onEditHandler = new EventEmitter();
 
     editProgramUser: ProgramUserModel;
@@ -113,7 +123,6 @@ export class ProgramUsersEdit  implements OnInit {
             , gander: this.programUser.gander
             , birth_at: this.programUser.birth_at
             , bio: this.programUser.bio
-            , AddressID: this.programUser.AddressID
             , DoctorId: this.programUser.DoctorId
       };
     }

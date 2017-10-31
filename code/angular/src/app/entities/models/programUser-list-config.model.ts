@@ -9,7 +9,6 @@ export class ProgramUserListConfig {
               gander? :string,
               birth_at? :string,
               bio? :string,
-              AddressID? :number,
               DoctorId? :number,
             }
        = {};
