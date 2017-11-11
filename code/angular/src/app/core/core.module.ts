@@ -6,11 +6,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { I18nService } from './i18n.service';
 import { ApiService } from './api.service';
+import { Angular2TokenService } from './angular2-token.service';
+import { AuthGuard } from './AuthGuard';
+import { AuthService } from './auth.service';
 import { JwtService } from './jwt.service';
-import { UserService } from './user.service';
-import { AuthGuard } from './auth-guard.service';
-import { HeaderComponent } from './shell/header/header.component';
-import { ShellComponent } from './shell/shell.component';
 
 @NgModule({
   imports: [
@@ -25,12 +24,12 @@ import { ShellComponent } from './shell/shell.component';
   ],
   providers: [
     ApiService,
+    Angular2TokenService ,
+    AuthService,
     AuthGuard,
-   
     I18nService,
-
-    JwtService,
-    UserService
+    JwtService
+ 
     
   ]
 })

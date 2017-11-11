@@ -12,9 +12,9 @@ import { HomeComponent } from './home.component';
 import { QuoteService } from './quote.service';
 
 import { extract } from '../../core/i18n.service';
-import { HeaderComponent } from '../../core/shell/header/header.component';
+
 const homeRouting: ModuleWithProviders = RouterModule.forChild([
-  {  path: 'home', component: HomeComponent, data: { title: extract('Home') } }
+  {  path: '', component: HomeComponent, data: { title: extract('Home') } }
 ]);
 @NgModule({
   imports: [

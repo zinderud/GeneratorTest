@@ -1,0 +1,13 @@
+<div *ngIf="authTokenService.currentUserData"  >
+  <ul>
+    <li>
+      Email: <b>{{authTokenService.currentUserData.email}}</b>
+    </li>
+    <li>
+      Name: <b>{{authTokenService.currentUserData.name}}</b>
+    </li>
+    <li  >
+      Username: <b>{{authTokenService.currentUserData.nickname}}</b>
+    </li>
+  </ul>
+</div>

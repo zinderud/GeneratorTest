@@ -23,10 +23,10 @@ import { Component } from '@angular/core';
                 <hr />
                 <ul class="nav flex-column ">
                     <li>
-                        <a class="route"><div [routerLink]="['', 'doctors']">Doctors</div></a>
+                        <a class="route"><div routerLink="/entities/doctors">Doctors</div></a>
                     </li>
                     <li>
-                        <a class="route"><div [routerLink]="['', 'programUsers']">ProgramUsers</div></a>
+                        <a class="route"><div routerLink="/entities/programusers">ProgramUsers</div></a>
                     </li>
                     <li>
                         <a class="route"><div [routerLink]="['', 'patients']">Patients</div></a>

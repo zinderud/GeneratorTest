@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Observable';
 import { environment } from '../environments/environment';
 import { Logger } from './core/logger.service';
 import { I18nService } from './core/i18n.service';
+import { Angular2TokenService } from './core/angular2-token.service';
 
 const log = new Logger('App');
 
@@ -27,7 +28,14 @@ export class AppComponent implements OnInit {
               private activatedRoute: ActivatedRoute,
               private titleService: Title,
               private translateService: TranslateService,
-              private i18nService: I18nService) { }
+              private i18nService: I18nService,
+              private ats: Angular2TokenService
+            
+            ) { 
+              this.ats.init({
+                apiBase: "http://localhost:3000"
+              })
+            }
 
   ngOnInit() {
     // Setup logger

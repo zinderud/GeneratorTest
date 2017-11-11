@@ -1,15 +1,18 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { AuthGuard } from './core/index';
+ 
 import { LoginComponent } from './pages/login/login.component';
 import { extract } from './core/i18n.service';
-
-const routes: Routes = [
+import { HomeComponent } from './pages/home/home.component';
+ const routes: Routes = [
   { path: '', loadChildren: './pages/home/home.module#HomeModule' },
-  { path: '', component: LoginComponent , data: { title: extract('login') } },
+  { path: 'login', loadChildren: './pages/login/login.module#LoginModule' },
+  { path: 'entities', loadChildren: './entities/entities.module#EntitiesModule' },
+  { path: 'about', loadChildren: './pages/about/about.module#AboutModule' },
+  /* { path: '', component: LoginComponent , data: { title: extract('login') } },
   { path: 'login', component: LoginComponent , data: { title: extract('login') } },
-  { path: 'register', component: LoginComponent , data: { title: extract('register') } },
+  { path: 'register', component: LoginComponent , data: { title: extract('register') } }, */
  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
@@ -18,6 +21,6 @@ const routes: Routes = [
     preloadingStrategy: PreloadAllModules
   })],
   exports: [RouterModule],
-  providers: [AuthGuard]
+  providers: [ ]
 })
 export class AppRoutingModule { }

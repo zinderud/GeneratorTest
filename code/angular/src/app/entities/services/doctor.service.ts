@@ -55,4 +55,4 @@ export class DoctorsService {
         return this.apiService.delete((this.path+'/' + id))
           
     }
-};
+}

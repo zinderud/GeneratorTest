@@ -3,12 +3,12 @@ import env from './.env.json';
 
 export const environment = {
   production: true,
-  api_url: 'http://localhost:3000/api',
+  api_url: 'http://localhost:3000',
   version: env.npm_package_version,
-  serverUrl: 'http://localhost:3000/api',
-  defaultLanguage: 'en-US',
+ 
+  defaultLanguage: 'tr-TR',
   supportedLanguages: [
     'en-US',
-    'fr-FR'
+    'tr-TR'
   ]
 };

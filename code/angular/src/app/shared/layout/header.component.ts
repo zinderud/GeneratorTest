@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService, AuthGuard } from '../../core/index';
+ 
 import { I18nService } from '../../core/i18n.service';
+import { Angular2TokenService } from '../../core/angular2-token.service';
+import { UserData } from '../../core/angular2-token.model';
+import { retry } from 'rxjs/operator/retry';
+import { AuthService } from '../../core/auth.service';
  
 
 
@@ -16,11 +20,10 @@ export class HeaderComponent implements OnInit {
   menuHidden = true;
 
   constructor(private router: Router,
-    private userService: UserService,
-              private authenticationService: AuthGuard,
-              private i18nService: I18nService) { }
+    public authService: AuthService,
+     private i18nService: I18nService) { }
 
-  ngOnInit() { }
+  ngOnInit() {  }
 
   toggleMenu() {
     this.menuHidden = !this.menuHidden;
@@ -31,8 +34,9 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.authenticationService.logout()
-      .subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+    this.authService.logOutUser().subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
 
   get currentLanguage(): string {
@@ -43,17 +47,12 @@ export class HeaderComponent implements OnInit {
     return this.i18nService.supportedLanguages;
   }
 
-  get username(): string {
+   get username(): string {
  
-    this.userService.currentUser.subscribe(
-      (userData) => {
-        this.credentials = userData.username;
-      }
-    )
+    return localStorage.getItem('uid');
+      
  
-    console.log(this.credentials);
-    return this.credentials ? this.credentials : null;
 
-  }
+  } 
 
 }
